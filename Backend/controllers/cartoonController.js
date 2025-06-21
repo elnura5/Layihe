@@ -1,58 +1,50 @@
 import Cartoon from '../models/Cartoon.js'
 
+// GET /api/cartoons
 export const getCartoons = async (req, res) => {
   try {
     const cartoons = await Cartoon.find()
     res.json(cartoons)
   } catch (err) {
-    res.status(500).json({ error: 'Xəta baş verdi' })
+    res.status(500).json({ error: err.message })
   }
 }
 
-export const addCartoon = async (req, res) => {
+// GET /api/cartoons/:id
+export const getCartoon = async (req, res) => {
   try {
-    const data = req.body
-    if (Array.isArray(data)) {
-      await Cartoon.insertMany(data)
-      res.status(201).json({ message: 'Cizgi filmləri əlavə olundu' })
-    } else {
-      const newCartoon = new Cartoon(data)
-      await newCartoon.save()
-      res.status(201).json({ message: 'Cizgi filmi əlavə olundu' })
-    }
+    const cartoon = await Cartoon.findById(req.params.id)
+    if (!cartoon) return res.status(404).json({ error: 'Tapılmadı' })
+    res.json(cartoon)
   } catch (err) {
-    res.status(500).json({ error: 'Əlavə zamanı xəta oldu' })
+    res.status(500).json({ error: err.message })
   }
 }
 
-export const updateCartoon = async (req, res) => {
-  try {
-    const updated = await Cartoon.findByIdAndUpdate(req.params.id, req.body, { new: true })
-    res.json(updated)
-  } catch (err) {
-    res.status(500).json({ error: 'Yenilənmə zamanı xəta oldu' })
-  }
-}
-
-export const deleteCartoon = async (req, res) => {
-  try {
-    await Cartoon.findByIdAndDelete(req.params.id)
-    res.json({ message: 'Cizgi filmi silindi' })
-  } catch (err) {
-    res.status(500).json({ error: 'Silinmə zamanı xəta oldu' })
-  }
-}
+// POST /api/cartoons/many
 export const addManyCartoons = async (req, res) => {
   try {
     const cartoons = req.body
-
     if (!Array.isArray(cartoons)) {
-      return res.status(400).json({ error: "Məlumat array formatında olmalıdır." })
+      return res.status(400).json({ error: 'Array gözlənilir' })
     }
-
     await Cartoon.insertMany(cartoons)
-    res.status(201).json({ message: "Cizgi filmləri uğurla əlavə olundu!" })
+    res.status(201).json({ message: "Added" })
   } catch (err) {
     res.status(500).json({ error: err.message })
+  }
+}
+export const deleteCartoon = async (req, res) => {
+  try {
+    const { id } = req.params
+    const deletedCartoon = await Cartoon.findByIdAndDelete(id)
+
+    if (!deletedCartoon) {
+      return res.status(404).json({ message: "Tapılmadı" })
+    }
+
+    res.status(200).json({ message: "Uğurla silindi" })
+  } catch (err) {
+    res.status(500).json({ message: "Server xətası" })
   }
 }

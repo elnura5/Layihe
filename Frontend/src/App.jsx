@@ -1,13 +1,14 @@
 
 import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Home from './Pages/user/Home';
+import MainLayout from './Layout/MainLayout';
+import Home from './Pages/Home';
 import AllCartoons from './Pages/AllCartoons';
-import Categories from './Pages/user/Home/Categories';
+import Categories from './Pages/Categories';
 import VideoPlayer from './Pages/VideoPlayer';
 import About from './Pages/About';
-import Favorites from './Pages/user/Home/Favorites';
-import MainLayout from './Layout/MainLayout';
+import Favorites from './Pages/Favorites';
+
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
         <Route  index element={<Home />} />
         <Route path="/cartoons" element={<AllCartoons />} />
         <Route path="/categories" element={<Categories />} />
-        <Route path="/video/:id" element={<VideoPlayer />} />
+        <Route path="/cartoon/:id" element={<VideoPlayer />} />
         <Route path="/about" element={<About />} />
           <Route path="/favorites" element={<Favorites />} />
         </Route>

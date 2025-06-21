@@ -1,18 +1,10 @@
-import express from 'express'
-import {
-  getCartoons,
-  addCartoon,
-  updateCartoon,
-  deleteCartoon,
-  addManyCartoons
-} from '../controllers/cartoonController.js'
+import { Router } from 'express'
+import { getCartoons, getCartoon, addManyCartoons,deleteCartoon } from '../controllers/cartoonController.js'
 
-const router = express.Router()
-
+const router = Router()
 router.get('/', getCartoons)
-router.post('/', addCartoon)
-router.post('/many', addManyCartoons) 
-router.put('/:id', updateCartoon)
+router.get('/:id', getCartoon)
+router.post('/many', addManyCartoons)
 router.delete('/:id', deleteCartoon)
 
 export default router

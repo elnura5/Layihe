@@ -14,8 +14,8 @@ app.use(cors())
 app.use(express.json())
 
 app.use('/api/auth', authRoutes)
-app.use('/api/cartoons', cartoonRoutes)
+app.use('/api/cizgifilmler', cartoonRoutes)
 
 mongoose.connect(process.env.MONGO_URL)
-  .then(() => app.listen(5000))
+  .then(() => app.listen(3000))
   .catch(err => console.log(err))

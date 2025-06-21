@@ -1,17 +1,15 @@
 
 import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Home from './Pages/Home';
+import Home from './Pages/user/Home';
 import AllCartoons from './Pages/AllCartoons';
-import Categories from './Pages/Categories';
+import Categories from './Pages/user/Home/Categories';
 import VideoPlayer from './Pages/VideoPlayer';
 import About from './Pages/About';
-import Favorites from './Pages/Favorites';
+import Favorites from './Pages/user/Home/Favorites';
 import MainLayout from './Layout/MainLayout';
 
 function App() {
- 
-
   return (
     <>
        <BrowserRouter>

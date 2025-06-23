@@ -1,51 +1,52 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useParams, Link } from "react-router-dom";
 import axios from "axios";
-import"./style.css"
+import "./style.css";
 
-const VideoPlayer = () => {
+function VideoPlayer() {
   const { id } = useParams();
   const [cartoon, setCartoon] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:3000/api/cizgifilmler/${id}`)
-      .then((res) => setCartoon(res.data))
-      .catch((err) => console.error("Video gətirilərkən xəta:", err));
+    axios.get(`http://localhost:3000/api/cizgifilmler/${id}`)
+      .then(res => {
+        setCartoon(res.data);
+        setLoading(false);
+      })
+      .catch(err => {
+        console.log(err);
+        setLoading(false);
+      });
   }, [id]);
 
-  if (!cartoon) return <p>Yüklənir...</p>;
+  if (loading) return <p>Yüklənir...</p>;
+  if (!cartoon) return <p>Cizgi filmi tapılmadı!</p>;
 
-  // YouTube URL-dən video ID çıxarma
-  const getYoutubeId = (url) => {
-    const match = url.match(/(?:youtu\.be\/|v=)([^&]+)/);
-    return match ? match[1] : null;
-  };
-
-  const videoId = getYoutubeId(cartoon.videoUrl);
+ 
+  const videoId = cartoon.videoUrl.split("youtu.be/")[1].split("?")[0];
 
   return (
     <div className="video-player-container">
       <h2>{cartoon.title}</h2>
-      <div className="video-frame">
-        {videoId ? (
-          <iframe
-            width="100%"
-            height="400"
-            src={`https://www.youtube.com/embed/${videoId}`}
-            title={cartoon.title}
-            allowFullScreen
-          ></iframe>
-        ) : (
-          <p>Video tapılmadı</p>
-        )}
+      <div className="video-wrapper">
+        <iframe
+          src={`https://www.youtube.com/embed/${videoId}`}
+          title={cartoon.title}
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        />
       </div>
-      <div className="details">
-        <p className="desc"><strong>Haqqında:</strong>{cartoon.description}</p>
+      <div className="cartoon-info">
+        <p><strong>Kateqoriya:</strong> {cartoon.category}</p>
         <p><strong>İl:</strong> {cartoon.year}</p>
+        <p><strong>Müddət:</strong> {cartoon.duration} dəqiqə</p>
+        <p><strong>Təsvir:</strong> {cartoon.description}</p>
       </div>
+      <Link to="/cartoons" className="back-link">← Bütün Cizgi Filmlərinə qayıt</Link>
     </div>
   );
-};
+}
 
 export default VideoPlayer;

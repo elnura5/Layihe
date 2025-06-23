@@ -1,63 +1,34 @@
-.home {
-  padding: 2rem;
-  background: linear-gradient(to bottom, #fff0f5, #f0ffff);
-  font-family: 'Comic Sans MS', cursive;
+.home-container {
+  padding: 50px;
+  background: linear-gradient(to bottom, #fceabb, #f8b500);
+  min-height: 100vh;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
-.hero {
+.home-title {
   text-align: center;
-  background: #ffe4e1;
-  padding: 3rem 1rem;
-  border-radius: 20px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-  margin-bottom: 3rem;
+  font-size: 36px;
+  color: #333;
+  margin-bottom: 30px;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
 }
 
-.hero h1 {
-  font-size: 3rem;
-  color: #ff69b4;
-}
-
-.hero p {
-  font-size: 1.2rem;
-  margin-bottom: 1.5rem;
-}
-
-.watch-btn {
-  background: #ff69b4;
-  color: white;
-  padding: 0.8rem 1.8rem;
-  font-size: 1rem;
-  border-radius: 10px;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.watch-btn:hover {
-  background: #ff1493;
-}
-
-.featured h2 {
-  text-align: center;
-  color: #ff4500;
-  margin-bottom: 2rem;
-}
-
-.cartoon-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  justify-content: center;
+.cartoons-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* tam olaraq 3 sütun */
+  gap: 40px;
 }
 
 .cartoon-card {
-  background: #fffacd;
+  background: white;
   border-radius: 15px;
-  padding: 1rem;
-  width: 200px;
+  padding: 10px;
   text-align: center;
-  box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-decoration: none;
+  color: black;
+  transition: transform 0.3s ease;
 }
 
 .cartoon-card:hover {
@@ -66,24 +37,7 @@
 
 .cartoon-card img {
   width: 100%;
-  height: 130px;
+  height: 300px;
   object-fit: cover;
   border-radius: 10px;
-  margin-bottom: 0.5rem;
-}
-
-.details-btn {
-  display: inline-block;
-  margin-top: 0.5rem;
-  padding: 0.4rem 1rem;
-  background: #20b2aa;
-  color: white;
-  border-radius: 8px;
-  text-decoration: none;
-  font-size: 0.9rem;
-  transition: background 0.3s;
-}
-
-.details-btn:hover {
-  background: #008b8b;
 }

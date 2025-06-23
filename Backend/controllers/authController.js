@@ -1,33 +1,28 @@
-import User from '../models/User.js'
-import bcrypt from 'bcrypt'
-import jwt from 'jsonwebtoken'
+import User from "../models/User.js";
+import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
 
-export async function register(req, res) {
-  try {
-    const hashed = await bcrypt.hash(req.body.password, 10)
-    const user = new User({
-      username: req.body.username,
-      email: req.body.email,
-      password: hashed
-    })
-    await user.save()
-    res.status(201).json("Qeydiyyat tamamlandı")
-  } catch (err) {
-    res.status(500).json("Xəta baş verdi")
-  }
-}
+const JWT_SECRET = "secretkey";
 
-export async function login(req, res) {
-  try {
-    const user = await User.findOne({ email: req.body.email })
-    if (!user) return res.status(404).json("İstifadəçi tapılmadı")
+export const register = async (req, res) => {
+  const { name, email, password } = req.body;
+  const existingUser = await User.findOne({ email });
+  if (existingUser) return res.status(400).json({ message: "Email already exists" });
 
-    const valid = await bcrypt.compare(req.body.password, user.password)
-    if (!valid) return res.status(400).json("Şifrə yanlışdır")
+  const hashedPassword = await bcrypt.hash(password, 10);
+  const user = new User({ name, email, password: hashedPassword });
+  await user.save();
+  res.status(201).json({ message: "User created" });
+};
 
-    const token = jwt.sign({ id: user._id, isAdmin: user.isAdmin }, process.env.JWT_SECRET)
-    res.json({ token })
-  } catch (err) {
-    res.status(500).json("Giriş zamanı xəta baş verdi")
-  }
-}
+export const login = async (req, res) => {
+  const { email, password } = req.body;
+  const user = await User.findOne({ email });
+  if (!user) return res.status(400).json({ message: "Invalid email or password" });
+
+  const isMatch = await bcrypt.compare(password, user.password);
+  if (!isMatch) return res.status(400).json({ message: "Invalid email or password" });
+
+  const token = jwt.sign({ userId: user._id, role: user.role }, JWT_SECRET, { expiresIn: "1d" });
+  res.json({ token, user: { name: user.name, email: user.email, role: user.role } });
+};

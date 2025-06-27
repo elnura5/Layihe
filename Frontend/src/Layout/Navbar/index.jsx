@@ -1,19 +1,16 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './style.css';
+import React from "react";
+import "./style.css";
 
 const Navbar = () => {
   return (
     <nav className="navbar">
-      <div className="navbar-logo">
-        <Link to="/">CizgiTV</Link>
-      </div>
-      <ul className="navbar-links">
-        <li><Link to="/">Ana Səhifə</Link></li>
-        <li><Link to="/allcartoons">Bütün Cizgi Filmləri</Link></li>
-        <li><Link to="/about">Haqqımızda</Link></li>
-        <li><Link to="/adminpanel">Admin Panel</Link></li>
-        <li><Link to="/user">İstifadəçi Paneli</Link></li>
+      <div className="logo">🌈 CizgiTV</div>
+      <ul className="nav-links">
+        <li><a href="/">🏡 Ana Səhifə</a></li>
+        <li><a href="allcartoon">🎞️ Filmlər</a></li>
+        <li><a href="#">🧚‍♀️ Qəhrəmanlar</a></li>
+        <li><a href="#">🧩 Əyləncə</a></li>
+        <li><a href="#">📬 Əlaqə</a></li>
       </ul>
     </nav>
   );

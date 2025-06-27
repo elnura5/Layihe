@@ -37,7 +37,26 @@
 
 .cartoon-card img {
   width: 100%;
-  height: 300px;
+  height: auto;
+  max-width: 100%;
+  display: block;
   object-fit: cover;
-  border-radius: 10px;
+  object-position: center;
+}
+.cartoon-card {
+  overflow: hidden; /* Şəkilin kartdan çıxmaması üçün */
+}
+
+.cartoon-card img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;   /* Responsive üçün */
+  display: block;    /* inline default problemini önləmək üçün */
+  object-fit: cover; /* Kart sahəsini tam doldurur, orantını pozmur */
+  object-position: center;
+}
+@media (max-width: 599px) {
+  .cartoon-card img {
+    max-height: 180px;
+  }
 }

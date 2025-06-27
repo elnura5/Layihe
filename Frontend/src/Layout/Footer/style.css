@@ -1,0 +1,38 @@
+.footer {
+  background: linear-gradient(90deg, #ffd166, #a3d5ff, #8cffc1);
+  padding: 20px;
+  text-align: center;
+  font-family: 'Comic Sans MS', 'Fredoka', sans-serif;
+  border-top: 3px solid #ff8400;
+  margin-top: 30px;
+}
+
+.footer-title {
+  font-size: 22px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #444;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: #ff8400;
+}
+
+.footer-copy {
+  font-size: 14px;
+  color: #666;
+}

@@ -13,17 +13,6 @@ useEffect(() => {
   GetCartoons()
 }, [])
 
-// async function ProductPrice(params) {
-//   if (params==="azdan_coxa") {
-//     const sortlanmis=await original.toSorted((a,b)=>(a.price-b.price))
-//     setoriginal(sortlanmis)
-//   }
-//   else{
-//     const sortlanmis=await original.toSorted((a,b)=>(b.price-a.price))
-//     setoriginal(sortlanmis)
-//   }
-  
-// }
 async function CartoonName(params) {
   if (params==="A-dan_Z-ye") {
     const sortlanmis=await original.toSorted((a,b)=>a.name.localeCompare(b.name))

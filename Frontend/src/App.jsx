@@ -10,7 +10,8 @@ import About from './Pages/About';
 // import Login from './Pages/Login';
 import Admin from './Pages/AdminPanel';
 import { AddAdmin } from './Pages/AddAdmin';
-import AllCartoons from './Pages/AllCartoons';
+import AllCartoons from './Components/AllCartoons';
+
 
 
 

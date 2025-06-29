@@ -3,10 +3,10 @@ import Navbar from '../Navbar'
 import { Outlet } from 'react-router-dom'
 import Footer from '../Footer'
 
-function MainLayout() {
+function MainLayout({ onScrollToCharacters }) {
   return (
     <div>
-        <Navbar/>
+         <Navbar onScrollToCharacters={onScrollToCharacters} />
         <Outlet/>
         <Footer/>
     </div>

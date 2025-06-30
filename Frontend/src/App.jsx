@@ -3,29 +3,27 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MainLayout from './Layout/MainLayout';
 import Home from './Pages/Home';
 import VideoPlayer from './Pages/VideoPlayer';
-import Admin from './Pages/AdminPanel';
-import { AddAdmin } from './Pages/AddAdmin';
-import AllCartoons from './Components/AllCartoons';
-
-import { useRef } from 'react';
+import AllCartoons from './Components/AllCartoonsSection';
+import Quiz from './Pages/Quiz';
+import CharactersSlider from './Components/CharactersSection';
+import Admin from './Pages/AdminPanel/Admin/Admin';
+import { AddAdmin } from './Pages/AdminPanel/Admin/AddAdmin';
 
 function App() {
-  const charactersRef = useRef(null); // Qəhrəmanlar bölməsi üçün ref
 
-  const scrollToCharacters = () => {
-    charactersRef.current?.scrollIntoView({ behavior: 'smooth' });
-  };
 
   return (
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<MainLayout onScrollToCharacters={scrollToCharacters} />}>
-            <Route index element={<Home charactersRef={charactersRef} />} />
+          <Route path="/" element={<MainLayout />}>
+            <Route index element={<Home />} />
             <Route path="/cartoon/:id" element={<VideoPlayer />} />
             <Route path="/allcartoon" element={<AllCartoons />} />
+             <Route path="/quiz" element={<Quiz/>} />
             <Route path="/admin" element={<Admin />} />
-            <Route path="/addadmin" element={<AddAdmin />} />
+            <Route path="/addadmin" element={<AddAdmin/>} />
+                <Route path="/" element={<CharactersSlider />} />
           </Route>
         </Routes>
       </BrowserRouter>

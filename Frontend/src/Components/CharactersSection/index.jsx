@@ -39,7 +39,7 @@ const CharactersSlider = () => {
         {repeatedCharacters.map((char, index) => (
           <div className="character-card" key={index}>
             <img src={char.img} alt={char.name} />
-            <h4>{char.name}</h4>
+            <h4 style={{"font-size":"1rem"}} >{char.name}</h4>
           </div>
         ))}
       </div>

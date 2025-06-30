@@ -55,7 +55,7 @@ function AllCartoons() {
 
   return (
     <div className="home-container">
-      <h1 className="home-title"> Cizgi Filmləri</h1>
+      <h1 className="home-title">Bütün Cizgi Filmləri</h1>
       <div className="cartoons-grid">
         {cartoons.map(cartoon => {
           const imageUrl = cartoonImages[cartoon.title] || "https://via.placeholder.com/500x400?text=No+Image";
@@ -63,7 +63,7 @@ function AllCartoons() {
           return (
             <Link to={`/cartoon/${cartoon._id}`} key={cartoon._id} className="cartoon-card">
               <img src={imageUrl} alt={cartoon.title} />
-              <h3>{cartoon.title}</h3>
+              <h3 >{cartoon.title}</h3>
 
             </Link>
           );

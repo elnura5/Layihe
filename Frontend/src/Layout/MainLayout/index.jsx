@@ -1,15 +1,18 @@
 import React from 'react'
+import Footer from '../Footer'
 import Navbar from '../Navbar'
 import { Outlet } from 'react-router-dom'
-import Footer from '../Footer'
-
-function MainLayout({ onScrollToCharacters }) {
+import "./style.css"
+function MainLayout() {
   return (
-    <div>
-         <Navbar onScrollToCharacters={onScrollToCharacters} />
-        <Outlet/>
-        <Footer/>
-    </div>
+   <div className="page-container">
+  <div className="content-wrap">
+  <Navbar/>
+  <Outlet/>
+  </div>
+  <Footer />
+</div>
+
   )
 }
 

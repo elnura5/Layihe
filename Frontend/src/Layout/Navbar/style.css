@@ -13,7 +13,7 @@ body {
   z-index: 999;           /* Digər elementlərin üstündə qalsın */
   background: linear-gradient(90deg, #ffb703, #a3d5ff, #8cffc1);
   display: flex;
-  justify-content: space-evenly;
+  justify-content:space-between;
   align-items: center;
   padding: 14px 16px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
@@ -32,7 +32,7 @@ body {
   display: flex;
   gap: 14px;
   margin: 0;
-  padding: 0;
+  padding: 20px;
 }
 
 .nav-links li a {
@@ -53,4 +53,29 @@ body {
   background-color: #ffd166;
   color: #222;
   transform: scale(1.05);
+}
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  padding: 20px;
+}
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color:#8cffc1;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
 }

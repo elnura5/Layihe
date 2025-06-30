@@ -1,0 +1,10 @@
+input{
+    width: 500px;
+}
+button{
+    width: 200px;
+}
+.content{
+    display: flex;
+    gap: 20px;
+}

@@ -1,16 +1,18 @@
 import React from 'react';
-import AllCartoons from '../../Components/AllCartoons';
-import ImageSlider from '../../Components/Header/ImageSlider';
+import AllCartoons from '../../Components/AllCartoonsSection';
+import ImageSlider from '../../Components/CizgiTvSection/ImageSlider';
 import './style.css';
 import CharactersSection from '../../Components/CharactersSection';
-function Home({ charactersRef }) {
+import Cartoonday from '../../Components/CartoonDay';
+function Home() {
   return (
     <div>
       <ImageSlider />
       {/* Bütün cizgi filmlər */}
       <AllCartoons />
       {/* Qəhrəmanlar bölməsi */}
-      <CharactersSection ref={charactersRef} />
+      <CharactersSection />
+      <Cartoonday/>
     </div>
   );
 }

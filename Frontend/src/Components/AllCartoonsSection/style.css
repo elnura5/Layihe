@@ -1,8 +1,6 @@
 .home-container {
   padding: 50px;
   background: linear-gradient(to bottom, #fceabb, #f8b500);
-  min-height: 100vh;
-  max-width: 1400px;
   margin: 0 auto;
 }
 
@@ -23,7 +21,6 @@
 .cartoon-card {
   background:antiquewhite;
   border-radius: 15px;
-  padding: 10px;
   text-align: center;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   text-decoration: none;
@@ -45,6 +42,9 @@
 }
 .cartoon-card {
   overflow: hidden; /* Şəkilin kartdan çıxmaması üçün */
+}
+.cartoon-card h3{
+  font-size: 1rem;
 }
 
 .cartoon-card img {

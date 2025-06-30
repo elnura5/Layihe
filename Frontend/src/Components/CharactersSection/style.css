@@ -1,13 +1,21 @@
 .characters-slider-section {
-  padding: 60px 30px;
+  padding: 10px 30px;
   background: linear-gradient(to right, #fff7d5, #ffecd2);
+  max-height: 400px;
+  
 }
-
+section .characters-slider-section {
+ display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  
+}
 .characters-slider-section h2 {
   text-align: center;
   font-size: 2rem;
-  margin-bottom: 20px;
-  color: #444;
+  margin-bottom: 30px;
+  padding-top: 10px;
 }
 
 .characters-slider {

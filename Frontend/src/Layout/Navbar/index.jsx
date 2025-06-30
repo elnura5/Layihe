@@ -1,22 +1,23 @@
 import React from "react";
 import "./style.css";
+import { useState } from "react";
 
-const Navbar = ({ onScrollToCharacters }) => {
-  const handleCharactersClick = (e) => {
-    e.preventDefault();
-    onScrollToCharacters();
-  };
-
+const Navbar = () => {
+ 
+const [menuOpen, setMenuOpen] = useState(false);
   return (
     <nav className="navbar">
       <div className="logo">🌈 CizgiTV</div>
-      <ul className="nav-links">
+      <ul className={`nav-links ${menuOpen ? 'active' : ''}`}>
         <li><a href="/">🏡 Ana Səhifə</a></li>
-        <li><a href="/allcartoon">🎞️ Filmlər</a></li>
-        <li><a href="#characters" onClick={handleCharactersClick}>🧚‍♀️ Qəhrəmanlar</a></li>
-        <li><a href="#">🧩 Əyləncə</a></li>
-        <li><a href="#">📬 Əlaqə</a></li>
+        <li><a href="/allcartoon">🎞️ Cizgi Filmlər</a></li>
+        <li><a href="/" >🧚‍♀️ Qəhrəmanlar</a></li>
+        <li><a href="/quiz">🧩 Tapmaca</a></li>
+        <li><a href="/profile">👤 Profil</a></li>
       </ul>
+         <div className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
+        &#9776;
+      </div>
     </nav>
   );
 };

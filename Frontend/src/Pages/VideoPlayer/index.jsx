@@ -39,12 +39,10 @@ function VideoPlayer() {
         />
       </div>
       <div className="cartoon-info">
-        <p><strong>Kateqoriya:</strong> {cartoon.category}</p>
         <p><strong>İl:</strong> {cartoon.year}</p>
-        <p><strong>Müddət:</strong> {cartoon.duration} dəqiqə</p>
         <p><strong>Təsvir:</strong> {cartoon.description}</p>
       </div>
-      <Link to="/cartoons" className="back-link">← Bütün Cizgi Filmlərinə qayıt</Link>
+      <Link to="/" className="back-link">← Ana səhifəyə qayıt</Link>
     </div>
   );
 }

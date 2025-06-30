@@ -34,6 +34,16 @@ export const addManyCartoons = async (req, res) => {
     res.status(500).json({ error: err.message })
   }
 }
+export const addSingleCartoon = async (req, res) => {
+  try {
+    const cartoon = new Cartoon(req.body);
+    await cartoon.save();
+    res.status(201).json({ message: "Tək cizgi filmi əlavə edildi", cartoon });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
 export const deleteCartoon = async (req, res) => {
   try {
     const { id } = req.params

@@ -1,0 +1,58 @@
+.puzzle-rules {
+  max-width: 90%;
+  width: 100%;
+  margin: 30px auto;
+  padding: 30px 20px;
+  background: bisque;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.puzzle-rules h3 {
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+}
+
+.puzzle-rules ul {
+  text-align: left;
+  margin-bottom: 20px;
+  padding-left: 20px;
+  font-size: 1rem;
+}
+
+.start-btn {
+  padding: 10px 20px;
+  background: chocolate;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+.start-btn:hover {
+  background: darksalmon;
+}
+
+/* ✅ Responsive düzəlişlər */
+@media (max-width: 600px) {
+  .puzzle-rules {
+    padding: 20px 15px;
+  }
+
+  .puzzle-rules h3 {
+    font-size: 1.2rem;
+  }
+
+  .puzzle-rules ul {
+    font-size: 0.95rem;
+  }
+
+  .start-btn {
+    width: 100%;
+    padding: 12px;
+  }
+}

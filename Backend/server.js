@@ -1,23 +1,24 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
-import videoRoutes from './routes/cartoonRoutes.js';
-import UserRouter  from "./routes/UsersRoute.js"
-import "./config/db.js"
-import cors from "cors"
-dotenv.config();
+import cors from 'cors';
+
+import userRoutes from './routes/UsersRoute.js';
+import cartoonRoutes from './routes/cartoonRoutes.js';
+import './config/db.js';
+
+dotenv.config(); // ✅ Əvvəldə çağır
 
 const app = express();
+
 app.use(cors());
-app.use(express.json()); 
+app.use(express.json()); // ✅ POST body-ləri oxumaq üçün bu lazımdır!
 
+// Routes
+app.use('/users', userRoutes);
+app.use('/api/cizgifilmler', cartoonRoutes);
 
-
-
-app.use('/api/cizgifilmler', videoRoutes);
-app.use("/users",UserRouter)
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Server ${PORT}-də işləyir`);
-
+  console.log(`✅ Server ${PORT}-də işləyir`);
 });

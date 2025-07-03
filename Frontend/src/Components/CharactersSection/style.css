@@ -4,13 +4,6 @@
   max-height: 400px;
   
 }
-section .characters-slider-section {
- display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  
-}
 .characters-slider-section h2 {
   text-align: center;
   font-size: 2rem;

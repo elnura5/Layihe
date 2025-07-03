@@ -5,10 +5,9 @@ import Home from './Pages/Home';
 import VideoPlayer from './Pages/VideoPlayer';
 import AllCartoons from './Components/AllCartoonsSection';
 import Quiz from './Pages/Quiz';
-import CharactersSlider from './Components/CharactersSection';
 import Admin from './Pages/AdminPanel/Admin/Admin';
 import { AddAdmin } from './Pages/AdminPanel/Admin/AddAdmin';
-
+import Register from './Pages/Register';
 function App() {
 
 
@@ -20,10 +19,10 @@ function App() {
             <Route index element={<Home />} />
             <Route path="/cartoon/:id" element={<VideoPlayer />} />
             <Route path="/allcartoon" element={<AllCartoons />} />
-             <Route path="/quiz" element={<Quiz/>} />
+            <Route path="/quiz" element={<Quiz />} />
             <Route path="/admin" element={<Admin />} />
-            <Route path="/addadmin" element={<AddAdmin/>} />
-                <Route path="/" element={<CharactersSlider />} />
+            <Route path="/addadmin" element={<AddAdmin />} />
+            <Route path="/register" element={<Register />} />
           </Route>
         </Routes>
       </BrowserRouter>

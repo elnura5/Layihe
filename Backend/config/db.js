@@ -4,14 +4,8 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const connectDB = async () => {
-  try {
-    await mongoose.connect(process.env.MONGO_URL);
-    console.log("✅ MongoDB bağlantısı uğurla quruldu");
-  } catch (error) {
-    console.error("❌ MongoDB bağlantı xətası:", error.message);
-    process.exit(1);
-  }
-};
+// MongoDB bağlantısı
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log('MongoDB bağlandı'))
+  .catch(err => console.log('MongoDB bağlantı xətası:', err));
 
-export default connectDB;

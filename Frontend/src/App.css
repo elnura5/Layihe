@@ -1,4 +1,11 @@
-* {
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Fredoka', 'Comic Sans MS', sans-serif;
+  background-color: #fffdf6;
+}
+html, body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;

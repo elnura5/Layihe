@@ -1,23 +1,18 @@
-body {
-  margin: 0;
-  font-family: 'Fredoka', 'Comic Sans MS', sans-serif;
-  background-color: #fffdf6;
-  padding-top: 80px; /* Fixed navbar üçün boşluq */
-}
 
 .navbar {
-  position: fixed;        /* Bu əsas hissədir */
+position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 999;           /* Digər elementlərin üstündə qalsın */
+  z-index: 999;
   background: linear-gradient(90deg, #ffb703, #a3d5ff, #8cffc1);
   display: flex;
-  justify-content:space-between;
+  justify-content: space-between;
   align-items: center;
-  padding: 14px 16px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   border-bottom: 4px solid #ff8400;
+    height: 70px; /* istəyə görə əlavə edilə bilər */
+  padding: 0 16px;
 }
 
 .logo {
@@ -32,7 +27,7 @@ body {
   display: flex;
   gap: 14px;
   margin: 0;
-  padding: 20px;
+  padding: 0; /* Fixed boşluq problemi */
 }
 
 .nav-links li a {
@@ -43,7 +38,7 @@ body {
   padding: 8px 12px;
   border-radius: 12px;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: center;
   gap: 6px;
@@ -54,17 +49,19 @@ body {
   color: #222;
   transform: scale(1.05);
 }
+
 .menu-toggle {
   display: none;
   font-size: 28px;
   cursor: pointer;
   padding: 20px;
 }
+
 @media (max-width: 768px) {
   .nav-links {
     display: none;
     flex-direction: column;
-    background-color:#8cffc1;
+    background-color: #8cffc1;
     position: absolute;
     top: 60px;
     right: 0;

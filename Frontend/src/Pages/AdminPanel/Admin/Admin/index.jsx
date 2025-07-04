@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import Table from 'react-bootstrap/Table';
-import "./style.css"
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
 
@@ -77,7 +77,7 @@ useEffect(() => {
                 <td>{x.description}</td>
                 <td>{x.videoUrl}</td>
                 <td>{x.year}</td>
-                <td><button onClick={() => DeLeteById(x._id)}>Sil</button></td>
+                <td><button onClick={() => DeLeteById(x._id)}>X</button></td>
               </tr>
             ))}
         </tbody>

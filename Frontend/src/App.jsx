@@ -12,12 +12,16 @@ import About from './Pages/About';
 import Profile from './Pages/Profile';
 import Login from './Pages/Login';
 
+
+
+
 function App() {
 
 
   return (
     <>
-      <BrowserRouter>
+    <BrowserRouter>
+         
         <Routes>
           <Route path="/" element={<MainLayout />}>
             <Route index element={<Home />} />
@@ -33,6 +37,7 @@ function App() {
                  
           </Route>
         </Routes>
+   
       </BrowserRouter>
     </>
   );

@@ -3,14 +3,15 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
 import "./style.css"
+import { useTranslation } from "react-i18next";
 function Login() {
   const navigate = useNavigate();
-
+ const { t } = useTranslation();
   const formik = useFormik({
     initialValues: { email: "", password: "" },
     validationSchema: Yup.object({
-      email: Yup.string().email("Email düzgün deyil").required("Email tələb olunur"),
-      password: Yup.string().required("Şifrə tələb olunur"),
+     email: Yup.string().email(t("email") + " düzgün deyil").required(t("email") + " tələb olunur"),
+      password: Yup.string().required(t("password") + " tələb olunur"),
     }),
     onSubmit: (values) => {
       const storedUser = JSON.parse(localStorage.getItem("registeredUser"));
@@ -37,7 +38,7 @@ function Login() {
       <input
         name="email"
         type="email"
-        placeholder="Email"
+         placeholder={t("email")}
         onChange={formik.handleChange}
         value={formik.values.email}
       />
@@ -45,12 +46,12 @@ function Login() {
       <input
         name="password"
         type="password"
-        placeholder="Şifrə"
+          placeholder={t("şifrə")}
         onChange={formik.handleChange}
         value={formik.values.password}
       />
       {formik.touched.password && formik.errors.password && <div>{formik.errors.password}</div>}
-      <button type="submit">Daxil ol</button>
+      <button type="submit">{t("Daxil ol")}</button>
     </form>
   );
 }

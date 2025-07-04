@@ -7,7 +7,7 @@ import { useTranslation } from "react-i18next";
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const handleLanguageChange = (lng) => {
     i18n.changeLanguage(lng);
@@ -25,11 +25,15 @@ const Navbar = () => {
       <div className="logo">🌈 CizgiTV</div>
 
       <ul className={`nav-links ${menuOpen ? "active" : ""}`}>
-        <li><a href="/">🏡 Ana Səhifə</a></li>
-        <li><a href="/allcartoon">🎞️ Cizgi Filmlər</a></li>
-        <li><Link style={{ color: "white" }} to="heroes" smooth={true} duration={500}>🧚‍♀️ Qəhrəmanlar</Link></li>
-        <li><a href="/quiz">🧩 Tapmaca</a></li>
-        <li><a href="/profile">👤 Profil</a></li>
+        <li><a href="/">{t("home", "🏡 Ana Səhifə")}</a></li>
+        <li><a href="/allcartoon">{t("cartoons", "🎞️ Cizgi Filmlər")}</a></li>
+        <li>
+          <Link style={{ color: "white" }} to="heroes" smooth={true} duration={500}>
+            {t("heroes", "🧚‍♀️ Qəhrəmanlar")}
+          </Link>
+        </li>
+        <li><a href="/quiz">{t("quiz", "🧩 Tapmaca")}</a></li>
+        <li><a href="/profile">{t("profile", "👤 Profil")}</a></li>
 
         <li
           className="lang-menu"
@@ -37,12 +41,12 @@ const Navbar = () => {
           onMouseLeave={() => window.innerWidth > 800 && setLangOpen(false)}
           onClick={toggleLangMenu}
         >
-          <span>🌍 Dil</span>
+          <span>🌍 {t("language", "Dil")}</span>
           {langOpen && (
             <ul className="lang-dropdown">
-              <li onClick={() => handleLanguageChange("az")}>🇦🇿 </li>
-              <li onClick={() => handleLanguageChange("ru")}>🇷🇺 </li>
-              <li onClick={() => handleLanguageChange("en")}>🇺🇸 </li>
+              <li onClick={() => handleLanguageChange("az")}>🇦🇿</li>
+              <li onClick={() => handleLanguageChange("ru")}>🇷🇺</li>
+              <li onClick={() => handleLanguageChange("en")}>🇺🇸</li>
             </ul>
           )}
         </li>

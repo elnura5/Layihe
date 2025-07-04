@@ -2,9 +2,12 @@ import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
+import { useTranslation } from "react-i18next";  // react-i18next import
 import "./style.css";
 
 function Register() {
+  const { t } = useTranslation();
+
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -13,18 +16,17 @@ function Register() {
     },
     validationSchema: Yup.object({
       name: Yup.string()
-        .max(15, "Ad 15 simvoldan çox ola bilməz")
-        .required("Ad daxil edilməlidir"),
+        .max(15, t("name_max", "Ad 15 simvoldan çox ola bilməz"))
+        .required(t("name_required", "Ad daxil edilməlidir")),
       email: Yup.string()
-        .email("Email düzgün deyil")
-        .required("Email tələb olunur"),
+        .email(t("email_invalid", "Email düzgün deyil"))
+        .required(t("email_required", "Email tələb olunur")),
       password: Yup.string()
-        .min(6, "Şifrə minimum 6 simvol olmalıdır")
-        .required("Şifrə daxil edilməlidir"),
+        .min(6, t("password_min", "Şifrə minimum 6 simvol olmalıdır"))
+        .required(t("password_required", "Şifrə daxil edilməlidir")),
     }),
     onSubmit: async (values) => {
       try {
-        // Backend-ə sorğu göndəririk
         const res = await axios.post(
           "http://localhost:3000/users/register",
           values,
@@ -33,23 +35,24 @@ function Register() {
           }
         );
         console.log("Uğur:", res.data);
-        alert("Qeydiyyat uğurla tamamlandı!");
+        alert(t("register_success", "Qeydiyyat uğurla tamamlandı!"));
 
-        // İstifadəçi məlumatlarını localStorage-a yazırıq
         localStorage.setItem("registeredUser", JSON.stringify(values));
       } catch (err) {
         console.error(err.response?.data || err.message);
-        alert(err.response?.data?.message || "Xəta baş verdi");
+        alert(
+          err.response?.data?.message || t("register_error", "Xəta baş verdi")
+        );
       }
     },
   });
 
   return (
     <form onSubmit={formik.handleSubmit} className="register-form">
-      <h2>Qeydiyyatdan keç</h2>
+      <h2>{t("register_heading", "Qeydiyyatdan keç")}</h2>
 
       <div>
-        <label>Ad:</label>
+        <label>{t("name_label", "Ad")}:</label>
         <input
           type="text"
           name="name"
@@ -62,7 +65,7 @@ function Register() {
       </div>
 
       <div>
-        <label>Email:</label>
+        <label>{t("email_label", "Email")}:</label>
         <input
           type="email"
           name="email"
@@ -75,7 +78,7 @@ function Register() {
       </div>
 
       <div>
-        <label>Şifrə:</label>
+        <label>{t("password_label", "Şifrə")}:</label>
         <input
           type="password"
           name="password"
@@ -87,7 +90,7 @@ function Register() {
         )}
       </div>
 
-      <button type="submit">Qeydiyyatdan keç</button>
+      <button type="submit">{t("register_button", "Qeydiyyatdan keç")}</button>
     </form>
   );
 }

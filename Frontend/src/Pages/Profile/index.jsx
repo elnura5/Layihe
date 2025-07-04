@@ -1,12 +1,13 @@
-// KidProfile.jsx
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";  // əlavə edin
 import "./style.css";
 
 // Sadə avatar variantları
 const avatars = ["🐶", "🐱", "🦊", "🐸", "🐵", "🐼"];
 
 function Profile() {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
   const [avatar, setAvatar] = useState("🐶");
@@ -32,7 +33,11 @@ function Profile() {
   };
 
   if (!user) {
-    return <div className="kid-container"><p className="kid-info">Giriş edilməyib.</p></div>;
+    return (
+      <div className="kid-container">
+        <p className="kid-info">{t("not_logged_in", "Giriş edilməyib.")}</p>
+      </div>
+    );
   }
 
   return (
@@ -43,17 +48,20 @@ function Profile() {
             key={a}
             className={`avatar-choice ${avatar === a ? "selected" : ""}`}
             onClick={() => handleAvatarSelect(a)}
-          >{a}</button>
+          >
+            {a}
+          </button>
         ))}
       </div>
 
       <div className="avatar-display">{avatar}</div>
 
-      <h2 style={{"padding-bottom":"20px"}} className="greeting">🎉 Xoş gəldin, {user.name}!</h2>
-    
+      <h2 style={{ paddingBottom: "20px" }} className="greeting">
+        🎉 {t("welcome_user", "Xoş gəldin")}, {user.name}!
+      </h2>
 
       <button className="kid-button" onClick={handleLogout}>
-        🚪 Logout & Ana Səhifə
+        🚪 {t("logout_and_home", "Logout & Ana Səhifə")}
       </button>
     </div>
   );

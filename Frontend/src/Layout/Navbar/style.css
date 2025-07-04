@@ -96,7 +96,7 @@
 /* Açılan menyu navbar daxilində olsun */
 .lang-dropdown {
   position: absolute;
-  top: 45px; /* navbar içindən bir qədər aşağıda */
+  top: 35px; /* navbar içindən bir qədər aşağıda */
   left: 0;
   background-color: white;
   color: #333;
@@ -105,7 +105,7 @@
   list-style: none;
   padding: 0;
   margin: 0;
-  min-width: 50px;
+  min-width:70px;
   z-index: 999;
 }
 
@@ -115,6 +115,7 @@
   cursor: pointer;
   transition: background 0.2s;
   white-space: nowrap;
+ 
 
 }
 

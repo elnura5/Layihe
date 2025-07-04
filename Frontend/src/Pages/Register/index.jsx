@@ -2,7 +2,7 @@ import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
-import "./style.css"; // Stil faylını unutma
+import "./style.css";
 
 function Register() {
   const formik = useFormik({
@@ -24,13 +24,19 @@ function Register() {
     }),
     onSubmit: async (values) => {
       try {
-        const res = await axios.post("http://localhost:3000/users/register", values, {
-          headers: { "Content-Type": "application/json" },
-        });
+        // Backend-ə sorğu göndəririk
+        const res = await axios.post(
+          "http://localhost:3000/users/register",
+          values,
+          {
+            headers: { "Content-Type": "application/json" },
+          }
+        );
         console.log("Uğur:", res.data);
         alert("Qeydiyyat uğurla tamamlandı!");
-        // istəsən navigate ilə loginə yönləndirə bilərsən
-        // navigate("/login");
+
+        // İstifadəçi məlumatlarını localStorage-a yazırıq
+        localStorage.setItem("registeredUser", JSON.stringify(values));
       } catch (err) {
         console.error(err.response?.data || err.message);
         alert(err.response?.data?.message || "Xəta baş verdi");

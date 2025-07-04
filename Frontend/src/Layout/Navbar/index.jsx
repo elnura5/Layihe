@@ -1,7 +1,7 @@
 // src/Components/Navbar.jsx
 import React, { useState } from "react";
 import "./style.css";
-
+import { Link} from 'react-scroll';
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -11,7 +11,7 @@ const Navbar = () => {
       <ul className={`nav-links ${menuOpen ? 'active' : ''}`}>
         <li><a href="/">🏡 Ana Səhifə</a></li>
         <li><a href="/allcartoon">🎞️ Cizgi Filmlər</a></li>
-        <li><a href="/">🧚‍♀️ Qəhrəmanlar</a></li>
+        <li><Link style={{"color":"white"}}  to="heroes" smooth={true} duration={500}>🧚‍♀️ Qəhrəmanlar</Link></li>
         <li><a href="/quiz">🧩 Tapmaca</a></li>
         <li><a href="/profile">👤 Profil</a></li>
       </ul>

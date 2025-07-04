@@ -26,7 +26,7 @@ function ImageSlider() {
           <img src="/images/slide1.jpg" alt="Slayd 2" className="image1" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://www.azernews.az/media/2021/08/13/jrfegfe9.png" alt="Slayd 3" className="image1" />
+          <img src="/images/slide3.jpg" alt="Slayd 3" className="image1" />
         </SwiperSlide>
       </Swiper>
     </div>

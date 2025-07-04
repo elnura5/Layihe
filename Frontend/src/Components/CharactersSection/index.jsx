@@ -33,8 +33,7 @@ const CharactersSlider = () => {
   const repeatedCharacters = [...characters, ...characters, ...characters];
 
   return (
-    <section className="characters-slider-section">
-      <h2 style={{"color":"darksalmon"}}>Cizgi film qəhrəmanları</h2>
+    <section className="heroes">
       <div className="characters-slider" ref={sliderRef}>
         {repeatedCharacters.map((char, index) => (
           <div className="character-card" key={index}>

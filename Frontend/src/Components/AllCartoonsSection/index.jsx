@@ -64,7 +64,7 @@ function AllCartoons() {
             <Link to={`/cartoon/${cartoon._id}`} key={cartoon._id} className="cartoon-card">
               <img src={imageUrl} alt={cartoon.title} />
               <h3 >{cartoon.title}</h3>
-
+               
             </Link>
           );
         })}

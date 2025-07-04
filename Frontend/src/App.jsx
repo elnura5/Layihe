@@ -7,7 +7,11 @@ import AllCartoons from './Components/AllCartoonsSection';
 import Quiz from './Pages/Quiz';
 import Admin from './Pages/AdminPanel/Admin/Admin';
 import { AddAdmin } from './Pages/AdminPanel/Admin/AddAdmin';
-import Register from './Pages/Register';
+import Register from './Pages/Register'
+import About from './Pages/About';
+import Profile from './Pages/Profile';
+import Login from './Pages/Login';
+
 function App() {
 
 
@@ -23,6 +27,10 @@ function App() {
             <Route path="/admin" element={<Admin />} />
             <Route path="/addadmin" element={<AddAdmin />} />
             <Route path="/register" element={<Register />} />
+             <Route path="/login" element={<Login />} />
+             <Route path="/about" element={<About />} />
+                <Route path="/profile" element={<Profile />} />
+                 
           </Route>
         </Routes>
       </BrowserRouter>

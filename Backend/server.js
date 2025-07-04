@@ -2,7 +2,6 @@ import express from 'express';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import cors from 'cors';
-
 import userRoutes from './routes/UsersRoute.js';
 import cartoonRoutes from './routes/cartoonRoutes.js';
 import './config/db.js';

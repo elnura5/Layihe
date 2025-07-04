@@ -1,0 +1,76 @@
+/* style.css */
+
+.kid-container {
+  max-width: 1600px;
+  margin: 40px auto;
+  background-color:antiquewhite;
+  border-radius: 12px;
+  padding: 30px 25px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+.avatar-select {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+
+.avatar-choice {
+  font-size: 28px;
+  padding: 10px 14px;
+  border: 2px solid transparent;
+  background-color:bisque;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+.avatar-choice:hover {
+  background-color: #d1a88b;
+}
+
+.avatar-choice.selected {
+  border-color:darkgoldenrod;
+  background-color:chocolate;
+  box-shadow: 0 0 8px #d78c5aaa;
+}
+
+.avatar-display {
+  font-size: 80px;
+  margin-bottom: 20px;
+}
+
+.greeting {
+  font-weight: 600;
+  font-size: 22px;
+  color:burlywood;
+  margin-bottom: 30px;
+}
+
+.kid-button {
+  background-color:chocolate;
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+
+.kid-button:hover {
+  background-color:coral;
+}
+
+.kid-info {
+  font-size: 18px;
+  color: #888;
+  padding: 40px 0;
+}

@@ -1,19 +1,20 @@
 import { UserModel } from "../models/User.js";
 import nodemailer from "nodemailer"
 import bcrypt from 'bcrypt';
+import jwt from "jsonwebtoken"
 const transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
     port: 587,
     secure: false, // true for 465, false for other ports
     auth: {
         user: "elnuraas-bf206@code.edu.az",
-        pass: "cdgy mqnm dvsi qmcn",
+        pass: "rzae pdfr vccb ouxq",
     },
 });
 
 
 
-const UserController = {
+ export const UserController = {
     getAll: async (req, res) => {
         let users = await UserModel.find()
         res.send(users)
@@ -73,7 +74,7 @@ const UserController = {
             res.send("confirm yanlisdir")
         }
         else{
-            res.send(user)
+           let token =jwt.sign ({userId:user._id},process.env.SecretKey)
         }
 
     }

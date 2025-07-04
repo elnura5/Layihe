@@ -29,7 +29,7 @@ h2 {
 }
 
 .cartoon-info {
-  background-color: #f0f4ff;
+  background-color:#fceabb;
   padding: 20px;
   border-radius: 10px;
   color: #333;
@@ -49,3 +49,6 @@ h2 {
 .back-link:hover {
   color: #1a1a5a;
 }
+.content-wrap {
+    flex: 1;
+  background: linear-gradient(to bottom, #fceabb, #f8b500);}
